@@ -98,6 +98,7 @@ label {
 }
 
 form {
+    position: relative;
     display: flex;
 }
 
@@ -110,19 +111,59 @@ input:focus {
     box-shadow: 3px 3px 5px rgba(0,0,0, 0.2)
 }
 
-#mail:focus:invalid {
+#mail:invalid {
     outline: solid red;
 }
 
-#pw:focus:invalid, #pw-confirm:focus:invalid {
+#mail:placeholder-shown:invalid {
+    outline: none;
+}
+
+#pw:placeholder-shown:invalid, #pw-confirm:placeholder-shown:invalid {
+    outline: none;
+}
+
+#pw:invalid, #pw-confirm:invalid {
     outline: solid red;
 }
 
-.error {
-
+#pw:not(:placeholder-shown):invalid + .error:after {
+    color: red;
+    font-size: 0.7em;
+    content: "*Password must be at least 8 characters";
 }
 
-/* .acc {
-    height: 40vh;
-    border: solid;
-} */
+button {
+    cursor: pointer;
+    transition: 200ms ease;
+    background-color: darkolivegreen;
+    color: white;
+    position: absolute;
+    left: 40px;
+    bottom: -60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0, 0.2)
+}
+
+button:hover {
+    transition: 200ms ease;
+    padding-top: 11px;
+    padding-right: 26px;
+    padding-left: 26px;
+    padding-bottom: 11px;
+}
+
+.acc a {
+    color: darkolivegreen;
+    text-decoration: none;
+}
+
+.acc p {
+    margin-top: 80px;
+    margin-left: 40px;
+}
