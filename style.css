@@ -111,6 +111,10 @@ input:focus {
     box-shadow: 3px 3px 5px rgba(0,0,0, 0.2)
 }
 
+input:focus::placeholder {
+    opacity: 0;
+}
+
 #mail:invalid {
     outline: solid red;
 }
@@ -127,9 +131,16 @@ input:focus {
     outline: solid red;
 }
 
-#pw:not(:placeholder-shown):invalid + .error:after {
+.error:after {
     color: red;
     font-size: 0.7em;
+}
+
+.error-confirm {
+    font-size: 0.7em;
+}
+
+#pw:not(:placeholder-shown):invalid + .error:after {
     content: "*Password must be at least 8 characters";
 }
 
